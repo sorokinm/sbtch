@@ -17,6 +17,7 @@ public class MyCloneable {
 }
 
 class Wheel {
+
     int d;
     Wheel (int di) {
         d = di;

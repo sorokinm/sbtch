@@ -17,7 +17,7 @@ class Flight {
     }
 
     public void saveToFile(String fileName) {
-        
+
     }
 
     public static Flight createFromFile(String fileName) {
