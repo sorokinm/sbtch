@@ -46,6 +46,9 @@ public class Client {
                 try {
                     int lineNumber = Integer.parseInt(in.readLine());
                     System.out.println("server: ");
+                    if (lineNumber == 0) {
+                        System.out.println("Done");
+                    }
                     for (int i = 0; i < lineNumber; ++i) {
                         System.out.println(in.readLine());
                     }

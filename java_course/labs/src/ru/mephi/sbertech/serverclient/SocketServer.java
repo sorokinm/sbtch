@@ -59,8 +59,10 @@ public class SocketServer {
                         ls();
                     } else if (input.startsWith("cd")) {
                         input = input.substring(2).trim();
+                        cd(input);
+                    } else {
                         this.out.println(1);
-                        this.out.println(input);
+                        this.out.println("parse error!!!");
                     }
                 }
             } catch (IOException e) {
@@ -93,12 +95,19 @@ public class SocketServer {
         }
 
         private void cd(String path) {
+            if (!path.startsWith("/")) {
+                path = System.getProperty("user.dir") + "/" + path;
+            }
             File dir = new File(path);
             if(dir.isDirectory()==true) {
                 System.setProperty("user.dir", dir.getAbsolutePath());
+                this.out.println(0);
             } else {
                 System.out.println(path + " is not a directory.");
+                this.out.println(1);
+                this.out.println(path + " is not a directory.");
             }
+
         }
     }
 }
